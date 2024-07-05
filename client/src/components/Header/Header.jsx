@@ -12,22 +12,26 @@ import Search from '../Header/Search'
 const StyledHeader = styled(AppBar)`
     background: #2874f0;
     height: 55px;
-`
+`;
 
 const StyledBox = styled(Box)`
     margin-left: 12%;
     line-height: 0;
-`
+`;
 const SubHeading = styled(Typography)`
     font-size: 10px;
     font-style: italic;
-`
+`;
+
 //to be used in paranthesis like this styled('')({})
 const PlusImage = styled('img')({
     width: 10,
     height: 10,
     marginLeft: 4
-})
+});
+
+
+
 
 const Header = () => {
 
