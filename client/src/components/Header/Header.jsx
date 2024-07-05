@@ -5,7 +5,6 @@
 
 import {AppBar, Toolbar, Box, Typography, styled} from '@mui/material';
 
-
 //components
 import Search from '../Header/Search'
 
