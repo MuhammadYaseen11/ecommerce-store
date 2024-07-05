@@ -18,7 +18,10 @@ const SubHeading = styled(Typography)`
     font-size: 10px;
     font-style: italic;
 `
-const PlusImage = styled(img)
+//to be used in paranthesis like this styled('')({})
+const PlusImage = styled('img')({
+    width: 10
+})
 
 const Header = () => {
 
@@ -34,7 +37,7 @@ const Header = () => {
                             <Box component="span" style={{color: '#FFE500'}}> Plus
                             </Box>
                             </SubHeading>
-                            <img src={subURL} />
+                            <PlusImage src={subURL} alt="PlusLogo"/>
                     </Box>
                 </StyledBox>
 
