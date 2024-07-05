@@ -1,9 +1,13 @@
 
 //images
-import Logo from "/ecommerce-store/client/src/images/header/seller.png"
+//import Logo from "/ecommerce-store/client/src/images/header/seller.png"
 
 
 import {AppBar, Toolbar, Box, Typography, styled} from '@mui/material';
+
+
+//components
+import Search from '../Header/Search'
 
 const StyledHeader = styled(AppBar)`
     background: #2874f0;
@@ -20,7 +24,9 @@ const SubHeading = styled(Typography)`
 `
 //to be used in paranthesis like this styled('')({})
 const PlusImage = styled('img')({
-    width: 10
+    width: 10,
+    height: 10,
+    marginLeft: 4
 })
 
 const Header = () => {
@@ -32,7 +38,7 @@ const Header = () => {
             <Toolbar>
                 <StyledBox>
                     <img src={logoURL} alt="Logo" style={{width: 75}}/>
-                    <Box>
+                    <Box style={{display: 'flex'}}>
                         <SubHeading>Explore 
                             <Box component="span" style={{color: '#FFE500'}}> Plus
                             </Box>
@@ -40,7 +46,7 @@ const Header = () => {
                             <PlusImage src={subURL} alt="PlusLogo"/>
                     </Box>
                 </StyledBox>
-
+                <Search/>
             </Toolbar>
         </StyledHeader>
     )
