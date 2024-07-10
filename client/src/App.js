@@ -3,11 +3,14 @@ import './App.css';
 
 //components
 import Header from './components/Header/Header';
+import Home from './components/home/Home';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header />
+      <Home />
+
     </div>
   );
 }

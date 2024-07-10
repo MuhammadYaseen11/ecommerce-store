@@ -7,12 +7,12 @@ import { AppBar, Toolbar, Box, Typography, styled } from '@mui/material';
 import Search from '../Header/Search';
 import CustomButtons from '../Header/CustomButtons';
 
+
 const StyledBox = styled(Box)`
   margin-left: 12%;
   line-height: 0;
   align-items: center;
 `;
-
 const StyledHeader = styled(AppBar)`
     background: #2874f0;
     height: 55px;
