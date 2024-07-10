@@ -2,26 +2,24 @@ import { Box, InputBase, styled } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 
 const SearchContainer = styled(Box)`
-  background: #fff;
-  width: 30%; /* Adjusted width */
   border-radius: 2px;
   margin-left: 10px;
+  width: 38%;
+  background-color: #fff;
   display: flex;
-  align-items: center; /* Center vertically */
-  height: 40px; /* Adjust height to match the desired look */
 `;
 
 const InputSearchBase = styled(InputBase)`
-  padding-left: 10px; /* Adjusted padding */
+  font-size: unset;
   width: 100%;
-  font-size: 14px; /* Adjusted font size */
+  padding-left: 20px;
 `;
 
 const SearchIconWrapper = styled(Box)`
-  color: blue;
+  margin-left: auto;
   padding: 5px;
   display: flex;
-  align-items: center; /* Center icon vertically */
+  color: blue;
 `;
 
 const Search = () => {
