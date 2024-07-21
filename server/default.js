@@ -3,7 +3,7 @@ import { products } from "./constants/data.js"
 import Product from "./model/ProductSchema.js";
 
 
-// Function to delete a product by ID
+//Function to delete a product by ID
 // const deleteProductById = async (id) => {
 //     try {
 //         await Product.deleteOne({ id: id });
@@ -24,7 +24,7 @@ const DefaultData = async () => {
 
 }
 
-// // Call the function to delete the product
+// // // Call the function to delete the product
 // deleteProductById('product8').then(() => {
 //     // After deletion, insert the default data
 //     DefaultData();
