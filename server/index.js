@@ -1,12 +1,18 @@
 import express from 'express'; //no need to use (const express = require('express') this is old version)
 import dotenv from 'dotenv';
+import cors from 'cors';
+
 
 import Connection from './database/db.js';
 import DefaultData from './default.js';
+import Router from './routes/route.js'
 
 const app = express();
 
 dotenv.config();
+
+app.use(cors());
+app.use('/', Router);
 
 //we use listen to create express server.
 //takes two aurgumnet 1, port 2. callback function
