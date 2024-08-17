@@ -5,13 +5,14 @@ import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/home/Home';
 
+import DataProvider from './context/DataProvider';
 function App() {
   return (
-    <div>
+    <DataProvider>
       <Header />
       <Home />
 
-    </div>
+    </DataProvider>
   );
 }
 
