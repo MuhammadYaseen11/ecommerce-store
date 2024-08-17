@@ -8,6 +8,7 @@ const Component = styled(Menu)`
     margin-top: 5px;
 `;
 
+//style of Logout button drop-down
 const Logout = styled(Typography)`
     font-size: 14px;
     margin-left: 20px;
@@ -30,7 +31,8 @@ const Profile = ({ account, setAccount }) => {
     
     return (
         <>
-            <Box onClick={handleClick}><Typography style={{ marginTop: 2 }}>{account}</Typography></Box>
+        {/* the cursor: 'pointer' is added to change the cursor to pointy hand cursor. */}
+            <Box onClick={handleClick}><Typography style={{ marginTop: 2, cursor: 'pointer' }}>{account}</Typography></Box>
             <Component
                 anchorEl={open}
                 open={Boolean(open)}
