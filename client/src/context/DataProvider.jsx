@@ -3,7 +3,7 @@
 import { createContext, useState } from 'react';
 
 //in video, DataContext = LoginContext
-export const LoginContext = createContext(null);
+export const DataContext = createContext(null);
 
 //in video, DataProvider = ContextProvider
 const ContextProvider = ({children}) => {
@@ -11,9 +11,9 @@ const ContextProvider = ({children}) => {
     const [ account, setAccount ] = useState('');
     
     return (
-        <LoginContext.Provider value={{ account, setAccount }}>
+        <DataContext.Provider value={{ account, setAccount }}>
             {children}
-        </LoginContext.Provider>
+        </DataContext.Provider>
     )
 }
 
