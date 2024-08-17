@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Dialog, DialogContent, TextField, Box, Button, Typography, styled } from '@mui/material';
 
 import { authenticateLogin, authenticateSignup } from '../service/api.js';
-
-import {DataContext} from '../../context/DataProvider.jsx'
 
 const Component = styled(DialogContent)`
     height: 70vh;
@@ -102,12 +100,11 @@ const accountInitialValues = {
     }
 }
 
-const LoginDialog = ({ open, setOpen }) => {
+const LoginDialog = ({ open, setOpen, setAccount }) => {
     const [ login, setLogin ] = useState(loginInitialValues);
     const [ signup, setSignup ] = useState(signupInitialValues);
     const [ error, showError] = useState(false);
     const [ account, toggleAccount ] = useState(accountInitialValues.login);
-    const {setAccount} = useContext(DataContext);
 
     useEffect(() => {
         showError(false);
@@ -128,7 +125,7 @@ const LoginDialog = ({ open, setOpen }) => {
         else {
             showError(false);
             handleClose();
-            setAccount(login.firstname);
+            setAccount(login.username);
         }
     }
 
@@ -136,7 +133,7 @@ const LoginDialog = ({ open, setOpen }) => {
         let response = await authenticateSignup(signup);
         if(!response) return;
         handleClose();
-        setAccount(signup.firstname);
+        setAccount(signup.username);
     }
     
     const toggleSignup = () => {
