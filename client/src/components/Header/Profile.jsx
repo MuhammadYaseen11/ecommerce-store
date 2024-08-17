@@ -37,7 +37,7 @@ const Profile = ({ account, setAccount }) => {
                 onClose={handleClose}
             >
                 <MenuItem onClick={() => { handleClose(); logout();}}>
-                    <PowerSettingsNew fontSize='small' color='primary'/> 
+                    <PowerSettingsNew fontSize='small' color='primary'/> {/* // this is used for the icon with power icon with logout dropdown. Also Comments inside children section of tag should be placed inside braces {/* and the opposite of this -{/*- */}
                     <Logout>Logout</Logout>
                 </MenuItem>
             </Component>
