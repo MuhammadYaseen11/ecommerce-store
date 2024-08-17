@@ -12,11 +12,29 @@ export const authenticateLogin = async (user) => {
 
 export const authenticateSignup = async (user) => {
     try {
-        return await axios.post(`${url}/signup`, user)
+        return await axios.post(`${url}/signup`, user);
     } catch (error) {
-        console.log('Error while calling Signup API: ', error);
+        if (error.response) {
+            // The request was made, and the server responded with a status code that falls out of the range of 2xx
+            console.log('Error while calling Signup API:', error.response.status);
+            console.log('Error data:', error.response.data);
+        } else if (error.request) {
+            // The request was made, but no response was received
+            console.log('No response received:', error.request);
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error in setting up the request:', error.message);
+        }
     }
 }
+
+// export const authenticateSignup = async (user) => {
+//     try {
+//         return await axios.post(`${url}/signup`, user)
+//     } catch (error) {
+//         console.log('Error while calling Signup API: ', error);
+//     }
+// }
 
 export const getProductById = async (id) => {
     try {
