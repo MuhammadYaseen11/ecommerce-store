@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 
-
 const productSchema = new mongoose.Schema({
-    id:{
+    id: {
         type: String,
         required: true,
         unique: true,
@@ -17,7 +16,7 @@ const productSchema = new mongoose.Schema({
     tagline: String,
 });
 
-const Products = mongoose.model('product', productSchema);
-
+// Check if the model already exists before defining it
+const Products = mongoose.models.product || mongoose.model('product', productSchema);
 
 export default Products;
