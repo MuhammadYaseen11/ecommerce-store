@@ -5,7 +5,7 @@ import { Box, styled } from '@mui/material';
 import NavBar from '../home/NavBar';
 import Banner from '../home/Banner';
 
-import { useSelector, useDispatch } from 'react-redux'; // hooks
+import { useSelector, useDispatch } from 'react-redux'; // hooks.
 import { getProducts as listProducts } from '../../redux/actions/product-actions';
 
 const Component = styled(Box)`
