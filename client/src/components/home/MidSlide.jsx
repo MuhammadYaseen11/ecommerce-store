@@ -1,7 +1,7 @@
 
 import { Box, styled } from '@mui/material';
 
-import Slide from '../home/Slide';
+import Slide from './Slide';
 
 const Component = styled(Box)`
     display: flex;
@@ -26,21 +26,19 @@ const RightComponent = styled(Box)(({ theme}) => ({
     }
 }));
 
-const MidSlide = ({ products }) => {
+const MidSlide = ({ products, title, timer }) => {
     const adURL = 'https://rukminim1.flixcart.com/flap/464/708/image/633789f7def60050.jpg?q=70';
 
     return (
         <Component>
             <LeftComponent>
                 <Slide 
-                    data={products} 
-                    title='Deals of the Day'
-                    timer={true} 
-                    multi={true}
-                />
+                products={products}
+                title={title}
+                timer={timer}/>
             </LeftComponent>
             <RightComponent>
-                <img src={adURL} alt="" style={{width: 217}}/>
+                <img src={adURL} alt='advertisement' style={{width: 217}}/>
             </RightComponent>
         </Component>
     )

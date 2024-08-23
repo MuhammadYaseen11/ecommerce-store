@@ -67,17 +67,20 @@ const renderer = ({ hours, minutes, seconds }) => {
     return <Box variant="span">{hours} : {minutes} : {seconds}  Left</Box>;
 };
 
-const Slide = ({products}) => {
+const Slide = ({ products, timer, title }) => {
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
     return (
         <Component>
             <Deal>
-                <Typography>Deal of the Day</Typography>
-                <Timer>
-                    <img src={timerURL} alt='timer' />
-                    <Countdown date={Date.now() + 5.04e+7} renderer={renderer}/>
-                </Timer>
+                <Typography>{title}</Typography>
+                {
+                    //if the timer is true, display the countdown timer, else don't display
+                    timer && <Timer>
+                        <img src={timerURL} style={{ width: 24 }} alt='time clock' />
+                        <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
+                    </Timer>
+                }
                 <ViewAllButton variant='contained' color='primary'>View All</ViewAllButton>
             </Deal>
             <Divider />
@@ -96,18 +99,18 @@ const Slide = ({products}) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-            {
-                products.map(product => (
-                    <Box textAlign="center" style={{ padding: '25px 15px' }}>
-                    <Image src={product.url} alt ="product" />
-                    <Text style={{ fontWeight: 600, color: '#212121' }}>{product.title.shortTitle}</Text>
-                    <Text style={{ color: 'green' }}>{product.discount}</Text>
-                    <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
-                    </Box>
-                ))
-            }
-            
-        </Carousel>
+                {
+                    products.map(product => (
+                        <Box textAlign="center" style={{ padding: '25px 15px' }}>
+                            <Image src={product.url} alt="product" />
+                            <Text style={{ fontWeight: 600, color: '#212121' }}>{product.title.shortTitle}</Text>
+                            <Text style={{ color: 'green' }}>{product.discount}</Text>
+                            <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
+                        </Box>
+                    ))
+                }
+
+            </Carousel>
         </Component>
     )
 }
