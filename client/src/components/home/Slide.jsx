@@ -71,7 +71,7 @@ const Slide = ({products}) => {
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
     return (
-        <Box>
+        <Component>
             <Deal>
                 <Typography>Deal of the Day</Typography>
                 <Timer>
@@ -80,6 +80,7 @@ const Slide = ({products}) => {
                 </Timer>
                 <ViewAllButton variant='contained' color='primary'>View All</ViewAllButton>
             </Deal>
+            <Divider />
             <Carousel
                 swipeable={false}
                 draggable={false}
@@ -97,12 +98,17 @@ const Slide = ({products}) => {
             >
             {
                 products.map(product => (
-                    <img src={product.url} alt ="product" />
+                    <Box textAlign="center" style={{ padding: '25px 15px' }}>
+                    <Image src={product.url} alt ="product" />
+                    <Text style={{ fontWeight: 600, color: '#212121' }}>{product.title.shortTitle}</Text>
+                    <Text style={{ color: 'green' }}>{product.discount}</Text>
+                    <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
+                    </Box>
                 ))
             }
             
         </Carousel>
-        </Box>
+        </Component>
     )
 }
 
