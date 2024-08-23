@@ -18,7 +18,7 @@ const Component = styled(Box)`
 
 const Home = () => {
     const getProducts = useSelector(state => state.getProducts);
-    const { products, error } = getProducts;
+    const { products } = getProducts;
 
     const dispatch = useDispatch();
 
@@ -31,32 +31,7 @@ const Home = () => {
             <NavBar />
             <Component>
                 <Banner />
-                <MidSlide products={products} />
-                <MidSection />
-                <Slide
-                    data={products} 
-                    title='Discounts for You'
-                    timer={false} 
-                    multi={true} 
-                />
-                <Slide
-                    data={products} 
-                    title='Suggested Items'
-                    timer={false} 
-                    multi={true} 
-                />
-                <Slide
-                    data={products} 
-                    title='Top Selection'
-                    timer={false} 
-                    multi={true} 
-                />
-                <Slide
-                    data={products} 
-                    title='Recommended Items'
-                    timer={false} 
-                    multi={true} 
-                />
+                <Slide products={products}/>
             </Component>
         </>
     )

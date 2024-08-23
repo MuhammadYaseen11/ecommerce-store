@@ -1,7 +1,7 @@
 
 import { Box, styled } from '@mui/material';
 
-import Slide from './Slide';
+import Slide from '../home/Slide';
 
 const Component = styled(Box)`
     display: flex;
@@ -36,11 +36,11 @@ const MidSlide = ({ products }) => {
                     data={products} 
                     title='Deals of the Day'
                     timer={true} 
-                    multi={true} 
+                    multi={true}
                 />
             </LeftComponent>
             <RightComponent>
-                <img src={adURL} style={{width: 217}}/>
+                <img src={adURL} alt="" style={{width: 217}}/>
             </RightComponent>
         </Component>
     )

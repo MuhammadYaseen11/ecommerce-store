@@ -7,7 +7,6 @@ import "react-multi-carousel/lib/styles.css";
 import Countdown from 'react-countdown';
 import { Link } from 'react-router-dom';
 
-
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
@@ -64,32 +63,23 @@ const Text = styled(Typography)`
     margin-top: 5px
 `
 
-const RenderTimer = styled(Box)(({ theme }) => ({
-    [theme.breakpoints.down('sm')]: {
-        display: 'none'
-    }
-}));
-      
-const MultiSlide = ({ data, timer, title }) => {
+const renderer = ({ hours, minutes, seconds }) => {
+    return <Box variant="span">{hours} : {minutes} : {seconds}  Left</Box>;
+};
+
+const Slide = ({products}) => {
     const timerURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/timer_a73398.svg';
 
-    const renderer = ({ hours, minutes, seconds }) => {
-        return <RenderTimer variant="span">{hours} : {minutes} : {seconds}  Left</RenderTimer>;
-    };
-    
     return (
-        <Component>
+        <Box>
             <Deal>
-                <DealText>{title}</DealText>
-                {
-                    timer && <Timer>
-                                <img src={timerURL} style={{ width: 24 }} alt='time clock' />
-                                <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
-                        </Timer>
-                }
-                <ViewAllButton variant="contained" color="primary">View All</ViewAllButton>
+                <Typography>Deal of the Day</Typography>
+                <Timer>
+                    <img src={timerURL} alt='timer' />
+                    <Countdown date={Date.now() + 5.04e+7} renderer={renderer}/>
+                </Timer>
+                <ViewAllButton variant='contained' color='primary'>View All</ViewAllButton>
             </Deal>
-            <Divider />
             <Carousel
                 swipeable={false}
                 draggable={false}
@@ -105,30 +95,14 @@ const MultiSlide = ({ data, timer, title }) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-                {
-                    data.map(temp => (
-                        <Link to={`product/${temp.id}`} style={{textDecoration: 'none'}}>
-                            <Box textAlign="center" style={{ padding: '25px 15px' }}>
-                                <Image src={temp.url} />
-                                <Text style={{ fontWeight: 600, color: '#212121' }}>{temp.title.shortTitle}</Text>
-                                <Text style={{ color: 'green' }}>{temp.discount}</Text>
-                                <Text style={{ color: '#212121', opacity: '.6' }}>{temp.tagline}</Text>
-                            </Box>
-                        </Link>
-                    ))
-                }
-            </Carousel>
-        </Component>
-    )
-}
-
-const Slide = (props) => {
-    return (
-        <>
             {
-                props.multi === true && <MultiSlide {...props} />
+                products.map(product => (
+                    <img src={product.url} alt ="product" />
+                ))
             }
-        </>
+            
+        </Carousel>
+        </Box>
     )
 }
 
