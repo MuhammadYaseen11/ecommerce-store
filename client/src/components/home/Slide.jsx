@@ -78,7 +78,7 @@ const Slide = ({ products, timer, title }) => {
                     //if the timer is true, display the countdown timer, else don't display
                     timer && <Timer>
                         <img src={timerURL} style={{ width: 24 }} alt='time clock' />
-                        <Countdown date={Date.now() + 5.04e+7} renderer={renderer} />
+                        <Countdown date={Date.now() + 2000} renderer={renderer} />
                     </Timer>
                 }
                 <ViewAllButton variant='contained' color='primary'>View All</ViewAllButton>

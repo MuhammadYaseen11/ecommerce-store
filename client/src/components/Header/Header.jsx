@@ -43,14 +43,15 @@ const Header = () => {
     <StyledHeader>
         <Toolbar>
             <StyledBox>
-                <img src={logoURL} alt="Logo" style={{width: 75}}/>
-                <Box style={{display: 'flex'}}>
+                {/* <img src={logoURL} alt="Logo" style={{width: 75}}/> */}
+                <div>Logo</div>
+                {/* <Box style={{display: 'flex'}}>
                     <SubHeading>Explore 
                         <Box component="span" style={{color: '#FFE500'}}> Plus
                         </Box>
-                        </SubHeading>
-                        <PlusImage src={subURL} alt="PlusLogo"/>
-                </Box>
+                        </SubHeading> */}
+                        {/* <PlusImage src={subURL} alt="PlusLogo"/> */}
+                {/* </Box> */}
             </StyledBox>
             <Search/>
             <CustomButtonWrapper>
