@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 //import { payUsingPaytm } from '../../service/api';
 //import { post } from '../../utils/paytm';
 
-//import { addToCart } from '../../redux/actions/cartActions';
+import { addToCart } from '../../redux/actions/cart-actions';
 import { useDispatch } from 'react-redux';
 
 const LeftContainer = styled(Box)(({ theme }) => ({
@@ -21,7 +21,7 @@ const LeftContainer = styled(Box)(({ theme }) => ({
 const Image = styled('img')({
     padding: '15px 20px',
     border: '1px solid #f0f0f0',
-    width: '85%'
+    width: '95%'
 });
 
 const StyledButton = styled(Button)`
@@ -39,18 +39,18 @@ const ActionItem = ({ product }) => {
     const dispatch = useDispatch();
 
     const buyNow = async () => {
-        //let response = await payUsingPaytm({ amount: 500, email: 'codeforinterview01@gmail.com'});
+        // let response = await payUsingPaytm({ amount: 500, email: 'codeforinterview01@gmail.com'});
         // var information = {
         //     action: 'https://securegw-stage.paytm.in/order/process',
         //     params: response    
         // }
-      //  post(information);
+        // post(information);
     }
 
-     const addItemToCart = () => {
-    //     dispatch(addToCart(id, quantity));
-    //     navigate('/cart');
-     }
+    const addItemToCart = () => {
+        dispatch(addToCart(id, quantity));
+        navigate('/cart');
+    }
 
     return (
         <LeftContainer>
