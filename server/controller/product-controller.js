@@ -16,6 +16,6 @@ export const getProductById = async (request, response) => {
         const products = await Product.findOne({ 'id': request.params.id });
         response.json(products);
     }catch (error) {
-
+        response.status(500).json({message: error.message})
     }
 }
