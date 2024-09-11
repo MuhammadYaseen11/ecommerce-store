@@ -2,8 +2,9 @@
 //import Logo from "/ecommerce-store/client/src/images/header/seller.png"
 import { useState } from 'react';
 
-import { AppBar, Toolbar, Box, IconButton, Typography, styled } from '@mui/material';
+import { AppBar, Toolbar, Box, IconButton, Drawer, List, Typography, styled } from '@mui/material';
 import { Menu } from '@mui/icons-material';
+import { ListItem } from '@mui/material';
 
 import { Link } from 'react-router-dom';
 
@@ -45,6 +46,7 @@ const MenuButton = styled(IconButton)(({ theme }) => ({
     }
 }));
 
+
 const CustomButtonWrapper = styled('span')(({ theme }) => ({ 
     margin: '0 5% 0 auto', 
     [theme.breakpoints.down('sm')]: {
@@ -68,6 +70,18 @@ const Header = () => {
       setOpen(true);
   }
 
+  const list = () => (
+    <Box style={{ width: 250 }} onClick={handleClose}>
+        <List>
+            <ListItem button>
+                <CustomButtons />
+            </ListItem>
+        </List>
+    </Box>
+);
+
+
+
   return (
     <StyledHeader>
         <Toolbar>
@@ -77,6 +91,10 @@ const Header = () => {
                 >
                     <Menu />
                 </MenuButton>
+                <Drawer open={open} onClose={handleClose}>
+                    {list()}
+                </Drawer>
+
         <Component to='/'>
                     <img src={logoURL} style={{ width: 75 }} />
                     <Box component="span" style={{ display: 'flex' }}>
