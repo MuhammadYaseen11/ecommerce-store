@@ -20,7 +20,11 @@ export const userSignUp = async (request, response) => {
 
 export const userLogIn = async (request, response) => {
     try {
-        let user = await User.findOne({ username: request.body.username, password: request.body.password });
+        const { username, password } = request.body;
+        if (typeof username !== "string" || typeof password !== "string") {
+            return response.status(400).json({ message: "Invalid input" });
+        }
+        let user = await User.findOne({ username: { $eq: username }, password: { $eq: password } });
         if(user) {
             return response.status(200).json(`${request.body.username} login successfull`);
         } else {
